@@ -1,21 +1,23 @@
-# ticket-management
+# Folder Structure Conventions
 
-## Folder structure:
-📦ticket-management
-┣ 📂config
-┃ ┗ 📜config.json
-┣ 📂model
-┃ ┣ 📜index.js
-┃ ┗ 📜ticket.js
-┣ 📂repository
-┃ ┗ 📜TicketRepository.js
-┣ 📂routes
-┣ 📂test
-┣ 📜.env
-┣ 📜.eslintrc.js
-┣ 📜.gitignore
-┣ 📜.prettierrc
-┣ 📜README.md
-┣ 📜package-lock.json
-┣ 📜package.json
-┗ 📜server.js
+> Folder structure options and naming conventions for software projects
+
+### A typical top-level directory layout
+
+    .
+    ├── config                  # Config files (ex: config dotenv)
+    ├── model                   # Model files (storage model for sequelize (ORM))
+    ├── repository              # Repository files (storage sequelize command between query and  model)
+    ├── routes                  # Routes files (path for api)
+    ├── test                    # Automated tests (unit test)
+    └── README.md
+    └── ...
+
+### Automated tests
+
+    .
+    ├── ...
+    ├── test                    # Test files (alternatively `spec` or `tests`)
+
+    │   └── unit                # Unit tests
+    └── ...
