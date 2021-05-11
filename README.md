@@ -1,7 +1,6 @@
 # ticket-management
 
 ## Folder structure:
-Cancel changes
 📦ticket-management
 ┣ 📂config
 ┃ ┗ 📜config.json
