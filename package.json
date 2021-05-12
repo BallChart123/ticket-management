@@ -18,14 +18,14 @@
     },
     "homepage": "https://github.com/BallChart123/ticket-management#readme",
     "dependencies": {
+        "cors": "^2.8.5",
         "dotenv": "^9.0.2",
         "express": "^4.17.1",
-        "kraken-js": "^2.3.0",
         "moment": "^2.29.1",
         "moment-timezone": "^0.5.31",
-        "pg": "^8.6.0",
-        "sequelize": "^6.6.2",
-        "sqlite3": "^5.0.2"
+        "pg": "^8.5.1",
+        "sequelize": "^6.4.0",
+        "sqlite3": "5.0.0"
     },
     "devDependencies": {
         "eslint": "^7.26.0",

@@ -1,23 +1,20 @@
-'use strict';
+const express = require('express');
+const cors = require('cors');
 
-var kraken = require('kraken-js'),
-    app = require('express')(),
-    options = {
-        onconfig: function (config, next) {
-            config.get('view engines:js:renderer:arguments').push(app);
+require('dotenv').config();
 
-            next(null, config);
-        }
-        /* more options are documented in the README */
-    },
-    port = process.env.PORT || 8000;
+const app = express();
+const port = process.env.PORT || 5000;
 
-app.use(kraken(options));
+app.use(cors());
+app.use(express.json());
 
-app.listen(port, function (err) {
-    console.log(
-        '[%s] Listening on http://localhost:%d',
-        app.settings.env,
-        port
-    );
+// Connect to database in memory sequelize
+// Get routes
+const ticketsRouter = require('./routes/ticket');
+
+app.use('/ticket', ticketsRouter);
+
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
 });
