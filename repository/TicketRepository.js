@@ -27,65 +27,41 @@ TicketRepository.prototype = {
             throw error;
         }
     },
-    updateAccountList: async (filter, dataObject) => {
+    updateTicket: async (filter, dataObject) => {
         try {
             const model = await models;
-            const updateAccountList = await model.account_list.update(
-                dataObject,
-                { ...filter }
-            );
+            const updateAccountList = await model.ticket.update(dataObject, {
+                ...filter
+            });
             const realData = JSON.parse(JSON.stringify(updateAccountList));
             return realData;
         } catch (error) {
-            console.log(
-                'AccountlistRepository updateAccountList -> error',
-                error
-            );
+            console.log('TicketRepository updateTicket -> error', error);
             throw error;
         }
     },
-    deleteAccountList: async (filter) => {
+    deleteTicket: async (filter) => {
         try {
             const model = await models;
-            const deleteAccountList = await model.account_list.destroy({
+            const deleteTicket = await model.ticket.destroy({
                 ...filter
             });
-            return deleteAccountList;
+            return deleteTicket;
         } catch (error) {
-            console.log(
-                'AccountlistRepository deleteAccountList -> error',
-                error
-            );
+            console.log('TicketRepository deleteTicket -> error', error);
             throw error;
         }
     },
-    getAccountList: async (filter = {}) => {
+    getTicket: async (filter = {}) => {
         try {
             const model = await models;
-            const result = await model.account_list.findAll({
+            const result = await model.ticket.findAll({
                 ...filter,
                 raw: true
             });
             return result;
         } catch (error) {
-            console.log('AccountlistRepository getAllData -> error', error);
-            throw error;
-        }
-    },
-    getAccountListSortOrder: async (func = 'max', filter = {}) => {
-        try {
-            const model = await models;
-            const result = await model.account_list.findAll({
-                attributes: [fn(func, col('sorting_order'))],
-                ...filter,
-                raw: true
-            });
-            return result;
-        } catch (error) {
-            console.log(
-                'AccountlistRepository getAccountListSortOrder -> error',
-                error
-            );
+            console.log('TicketRepository getTicket -> error', error);
             throw error;
         }
     }
